@@ -1,35 +1,106 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import PersonalInfoForm from "./components/CVForm/PersonalInfoForm";
+import PersonalInfoDisplay from "./components/CVPreview/PersonalInfoDisplay";
+import ProfileForm from "./components/CVForm/ProfileForm";
+import ProfileDisplay from "./components/CVPreview/ProfileDisplay";
+import EducationForm from "./components/CVForm/EducationForm";
+import EducationDisplay from "./components/CVPreview/EducationDisplay";
+import SkillsForm from "./components/CVForm/SkillsForm";
+import SkillsDisplay from "./components/CVPreview/SkillsDisplay";
+import ExperienceForm from "./components/CVForm/ExperienceForm";
+import ExperienceDisplay from "./components/CVPreview/ExperienceDisplay";
+import "./styles/PreviewLayout.css"
+import "./styles/FormStyles.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [personalInfo, setPersonalInfo] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    city: "",
+  });
+
+  const [profileText, setProfileText] = useState("");
+
+  const [educationInfo, setEducationInfo] = useState({
+    education: {
+      university: "",
+      date: "",
+      course: "",
+      grade: "",
+    },
+    certificates: {
+      name: "",
+    },
+  });
+
+  const [skills, setSkills] = useState([]);
+
+  const [experience, setExperience] = useState([
+    {
+      id: 1,
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ]);
+
+  const handlePersonalInfoChange = (newInfo) => {
+    setPersonalInfo(newInfo);
+  };
+
+  const handleEducationInfoChange = (newInfo) => {
+    setEducationInfo(newInfo);
+  };
+
+  const handleSkillsChange = (newSkills) => {
+    setSkills(newSkills);
+  };
+
+  const handleProfileTextChange = (newText) => {
+    setProfileText(newText);
+  };
+
+  const handleExperienceChange = (newExperience) => {
+    setExperience(newExperience);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <div className="form-side">
+        <PersonalInfoForm
+          personalInfo={personalInfo}
+          onPersonalInfoChange={handlePersonalInfoChange}
+        />
+        <ProfileForm
+          profileText={profileText}
+          onProfileTextChange={handleProfileTextChange}
+        />
+        <EducationForm
+          educationInfo={educationInfo}
+          onEducationInfoChange={handleEducationInfoChange}
+        />
+        <SkillsForm skills={skills} onSkillsChange={handleSkillsChange} />
+        <ExperienceForm
+          experience={experience}
+          onExperienceChange={handleExperienceChange}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="preview-side">
+        <div className="cv-preview">
+          <PersonalInfoDisplay personalInfo={personalInfo} />
+          <ProfileDisplay profileText={profileText} />
+          <EducationDisplay educationInfo={educationInfo} />
+          <SkillsDisplay skills={skills} />
+          <ExperienceDisplay experience={experience} />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

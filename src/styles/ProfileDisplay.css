@@ -1,0 +1,23 @@
+.profile-section {
+    margin-bottom: 2rem;
+}
+
+.profile-section h3 {
+    color: #1b4d5c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #1b4d5c;
+    padding-bottom: 0.5rem;
+}
+
+.profile-section .preview-content {
+    color: #2c2c2c;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.profile-section p {
+    margin: 0;
+    text-align: justify;
+}

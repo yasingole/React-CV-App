@@ -1,0 +1,24 @@
+.preview-side {
+    background: #f5f5f5;  
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.cv-preview {
+    width: 21cm; 
+    min-height: 29.7cm; 
+    background: white;
+    margin: 0 auto;
+    padding: 2.5cm 2cm;  
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+@media print {
+    .cv-preview {
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+        box-shadow: none;
+    }
+}

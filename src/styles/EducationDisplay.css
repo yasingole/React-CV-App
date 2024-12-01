@@ -1,0 +1,33 @@
+.preview-section h3 {
+    color: #1b4d5c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #1b4d5c;
+    padding-bottom: 0.5rem;
+}
+
+.education-details {
+    margin-bottom: 1.5rem;
+}
+
+.education-details h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 0.25rem;
+}
+
+.grade-info {
+    color: #4a4a4a;
+    font-size: 1rem;
+}
+
+.certificates {
+    margin-top: 1rem;
+}
+
+.certificates p {
+    font-weight: 600;
+    color: #2c2c2c;
+}
